@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#151c24">
+    <title>Released Dev | Профиль разработчика</title>
+    <meta property="og:title" content="Released Dev | Профиль разработчика">
+    <meta property="og:description" content="Официальный профиль Released Dev - разработчика и основателя проекта">
+    <meta property="og:image" content="https://example.com/logo.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        :root {
+            --main-bg: #0d1218;
+            --accent: #6C63FF;
+            --accent-light: #8a84ff;
+            --text: #ffffff;
+            --card-bg: rgba(13, 18, 24, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: var(--main-bg);
+            color: var(--text);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.05) 0%, transparent 90%),
+                radial-gradient(circle at 90% 80%, rgba(138, 132, 255, 0.05) 0%, transparent 90%);
+        }
+        
+        #site-header {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        #site-header-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #site-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        #site-logo-name {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        
+        #site-logo-name span {
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-section {
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, var(--main-bg) 100%),
+                        url('bg-pattern.png');
+            background-size: cover;
+            z-index: -1;
+            filter: blur(3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .avatar-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            background: #000000;
+        }
+        
+        .avatar-border {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent-light); /* Фиолетовый пунктир */
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .profile-info .title {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+        }
+        
+        .profile-info .description {
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-item .label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        .stat-item .value {
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 1px solid var(--accent-light);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .links-section {
+            margin-top: 50px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .link-info {
+            flex: 1;
+        }
+        
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .link-desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header">
+        <div id="site-header-box">
+            <a href="/" id="site-logo-box">
+                <div id="site-logo-name">Released <span>Dev</span></div>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="avatar-container">
+                        <div class="avatar-img"></div>
+                        <div class="avatar-border"></div>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Released Dev</h1>
+                        <div class="title">Fullstack Developer & Founder</div>
+                        <div class="description">
+                            Разработчик с 2022 года. Создаю современные веб-приложения с использованием передовых технологий. 
+                            Основатель проекта Released Dev - маркетплейс для разработчиков.
+                        </div>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="label">Опыт работы</div>
+                                <div class="value">2+ года</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="label">Проектов</div>
+                                <div class="value">15+</div>
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            <a href="#contact" class="btn btn-primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Контакты
+                            </a>
+                            <a href="https://github.com/releaseddev" target="_blank" class="btn btn-secondary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="profile-card">
+            <h2>Мои проекты</h2>
+            <div class="links-grid">
+                <a href="https://market.released.dev" target="_blank" class="link-card">
+                    <div class="link-icon">🛒</div>
+                    <div class="link-info">
+                        <div class="link-title">Released Market</div>
+                        <div class="link-desc">Маркетплейс для разработчиков</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="profile-card">
+            <h2>Контакты</h2>
+            <div class="links-grid">
+                <a href="mailto:contact@released.dev" class="link-card">
+                    <div class="link-icon">✉️</div>
+                    <div class="link-info">
+                        <div class="link-title">Email</div>
+                        <div class="link-desc">contact@released.dev</div>
+                    </div>
+                </a>
+                <a href="https://t.me/Re1eased" target="_blank" class="link-card">
+                    <div class="link-icon">📱</div>
+                    <div class="link-info">
+                        <div class="link-title">Telegram</div>
+                        <div class="link-desc">@Re1eased</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Released Dev. Все права защищены.
+    </footer>
+</body>
+</html>
