@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#050505">
     <title>Released Dev | Профиль разработчика</title>
-    <meta property="og:title" content="Released | Профиль разработчика">
-    <meta property="og:description" content="Официальный профиль Released*a (Александр) - разработчика и основателя проекта">
+    <meta property="og:title" content="Released Dev | Профиль разработчика">
+    <meta property="og:description" content="Официальный профиль Released Dev - разработчика и основателя проекта">
     <meta property="og:image" content="https://example.com/logo.png">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main-bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-dark: #7c3aed;
+            --main-bg: #050505;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --accent: #ffffff;
+            --accent-light: #ef4444;
+            --accent-dark: #dc2626;
             --text: #f8fafc;
-            --text-secondary: #cbd5e1;
+            --text-secondary: #a1a1aa;
             --border: rgba(255, 255, 255, 0.1);
             --success: #10b981;
         }
@@ -37,15 +37,11 @@
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 50%);
             min-height: 100vh;
         }
         
         #site-header {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
+            background: var(--main-bg);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -96,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, var(--main-bg) 100%);
+            background: var(--main-bg);
             z-index: -1;
         }
         
@@ -112,15 +108,14 @@
             border-radius: 16px;
             padding: 40px;
             margin: 30px 0;
-            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .profile-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
         
         .profile-header {
@@ -141,8 +136,10 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light)) padding-box,
+                        linear-gradient(45deg, var(--accent), var(--accent-light)) border-box;
+            background-color: #000000;
             position: relative;
             z-index: 2;
         }
@@ -193,7 +190,7 @@
         }
         
         .stat-item {
-            background: rgba(139, 92, 246, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             padding: 12px 24px;
             border-radius: 10px;
             border: 1px solid var(--border);
@@ -202,7 +199,8 @@
         
         .stat-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.3);
         }
         
         .stat-item .label {
@@ -238,16 +236,15 @@
         }
         
         .btn-primary {
-            background: var(--accent);
-            color: white;
-            border: 1px solid var(--accent-light);
-            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.3);
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
         
         .btn-primary:hover {
-            background: var(--accent-light);
+            background: rgba(255, 255, 255, 0.05);
             transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn-secondary {
@@ -303,20 +300,19 @@
             gap: 18px;
             text-decoration: none;
             color: var(--text);
-            backdrop-filter: blur(10px);
         }
         
         .link-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent-light);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
         .link-icon {
             width: 50px;
             height: 50px;
             border-radius: 12px;
-            background: rgba(139, 92, 246, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -325,7 +321,7 @@
         }
         
         .link-card:hover .link-icon {
-            background: rgba(139, 92, 246, 0.2);
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(239, 68, 68, 0.2));
             transform: scale(1.1);
         }
         
