@@ -3,41 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#151c24">
+    <meta name="theme-color" content="#050505">
     <title>Released Market | Услуги по созданию сайтов</title>
     <meta property="og:title" content="Released Market | Профессиональные сайты под ключ">
     <meta property="og:description" content="Маркетплейс услуг по созданию сайтов - лендинги, корпоративные сайты, интернет-магазины">
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main-bg: #0d1218;
-            --accent: #6C63FF;
-            --accent-light: #8a84ff;
-            --text: #ffffff;
-            --card-bg: rgba(13, 18, 24, 0.8);
+            --main-bg: #050505;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --accent: #ffffff;
+            --accent-light: #ef4444;
+            --accent-dark: #dc2626;
+            --text: #f8fafc;
+            --text-secondary: #a1a1aa;
             --border: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'JetBrains Mono', 'Inter', monospace;
         }
         
         body {
             background-color: var(--main-bg);
             color: var(--text);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.05) 0%, transparent 90%),
-                radial-gradient(circle at 90% 80%, rgba(138, 132, 255, 0.05) 0%, transparent 90%);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-weight: 400;
         }
         
         #market-header {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
+            background: var(--main-bg);
+            padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -46,19 +52,21 @@
         }
         
         #header-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         
         #market-logo {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text);
             text-decoration: none;
+            letter-spacing: -0.3px;
+            text-align: center;
         }
         
         #market-logo span {
@@ -68,31 +76,35 @@
         }
         
         .market-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         
         .market-hero {
-            margin-top: 80px;
-            padding: 60px 0;
+            margin-top: 90px;
+            padding: 80px 0;
             text-align: center;
         }
         
         .market-title {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 24px;
             background: linear-gradient(90deg, var(--accent), var(--accent-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
         
         .market-subtitle {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 40px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
         
         .services-section {
@@ -100,44 +112,47 @@
         }
         
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
+            font-size: 2.2rem;
+            margin-bottom: 36px;
             position: relative;
             display: inline-block;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 70px;
+            height: 4px;
             background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            border-radius: 3px;
+            border-radius: 2px;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
         }
         
         .service-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 32px;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             color: var(--text);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+            border-color: var(--accent-light);
         }
         
         .service-card::before {
@@ -151,18 +166,17 @@
         }
         
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text);
         }
         
         .service-name {
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             font-weight: 600;
             color: var(--text);
+            letter-spacing: -0.3px;
         }
         
         .service-price {
@@ -172,13 +186,14 @@
             background: linear-gradient(90deg, var(--accent), var(--accent-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
         
         .service-description {
             margin-bottom: 20px;
-            line-height: 1.6;
-            opacity: 0.9;
-            color: var(--text);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 400;
         }
         
         .service-features {
@@ -188,7 +203,7 @@
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 12px;
             padding-bottom: 12px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -202,85 +217,172 @@
         }
         
         .feature-icon {
-            color: var(--accent);
+            color: var(--accent-light);
             font-size: 1.1rem;
         }
         
         .order-btn {
             display: block;
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             text-align: center;
-            background: rgba(108, 99, 255, 0.1);
-            border: 1px solid var(--accent);
-            color: var(--accent-light);
-            border-radius: 6px;
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text);
+            border-radius: 12px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             margin-top: 20px;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
         }
         
         .order-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            border-color: var(--accent-light);
         }
         
         .market-footer {
             text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
+            padding: 48px 0;
+            margin-top: 80px;
             border-top: 1px solid var(--border);
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 300;
         }
         
         .contact-methods {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
         
         .contact-method {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 15px;
-            background: rgba(108, 99, 255, 0.1);
-            border-radius: 6px;
-            border: 1px solid var(--accent);
+            gap: 12px;
+            padding: 16px 24px;
+            background: transparent;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
             text-decoration: none;
-            color: var(--accent-light);
+            color: var(--text);
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .contact-method:hover {
-            background: var(--accent);
-            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            border-color: var(--accent-light);
         }
         
         .contact-icon {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .market-container, #header-container {
+                max-width: 900px;
+                padding: 0 32px;
+            }
+            
+            .market-title {
+                font-size: 2.6rem;
+            }
         }
         
         @media (max-width: 768px) {
+            .market-container, #header-container {
+                padding: 0 24px;
+            }
+            
+            .market-hero {
+                padding: 60px 0;
+                margin-top: 80px;
+            }
+            
             .market-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .market-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card {
+                padding: 28px 24px;
+                border-radius: 18px;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .market-container, #header-container {
+                padding: 0 20px;
+            }
+            
+            .market-title {
+                font-size: 1.9rem;
             }
             
             .market-subtitle {
                 font-size: 1rem;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .service-card {
+                padding: 24px 20px;
+                border-radius: 16px;
             }
             
-            .contact-methods {
-                flex-direction: column;
-                align-items: center;
+            .service-icon {
+                font-size: 2.4rem;
+            }
+            
+            .service-name {
+                font-size: 1.3rem;
+            }
+            
+            .service-price {
+                font-size: 1.6rem;
+            }
+            
+            .contact-method {
+                padding: 14px 20px;
             }
         }
     </style>
@@ -289,9 +391,6 @@
     <header id="market-header">
         <div id="header-container">
             <a href="#" id="market-logo">Released <span>Market</span></a>
-            <nav>
-                <a href="#services" class="order-btn" style="width: auto; padding: 10px 20px;">Мои услуги</a>
-            </nav>
         </div>
     </header>
 
@@ -340,7 +439,7 @@
                             <span>Интеграция с соцсетями</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать лендинг</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
                 
                 <!-- Корпоративный сайт -->
@@ -374,7 +473,7 @@
                             <span>Базовое SEO</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать сайт</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
                 
                 <!-- Интернет-магазин -->
@@ -408,7 +507,7 @@
                             <span>Интеграция с платежами</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать магазин</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
                 
                 <!-- Дополнительные услуги -->
@@ -442,7 +541,7 @@
                             <span>Техническая поддержка</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать доработку</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
                 
                 <!-- SEO-продвижение -->
@@ -476,7 +575,7 @@
                             <span>Ежемесячные отчеты</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать SEO</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
                 
                 <!-- Техническая поддержка -->
@@ -510,15 +609,20 @@
                             <span>Экстренные исправления</span>
                         </div>
                     </div>
-                    <a href="#contact" class="order-btn">Заказать поддержку</a>
+                    <a href="#contact" class="order-btn">Связаться для заказа</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="services-section" style="padding-top: 0;">
+    <section id="contact" class="contact-section">
         <div class="market-container">
             <h2 class="section-title">Свяжитесь со мной</h2>
+            
+            <p class="contact-info">
+                Для заказа услуг или консультации свяжитесь со мной через удобный для вас мессенджер. 
+                Обсудим ваш проект и подберем оптимальное решение.
+            </p>
             
             <div class="contact-methods">
                 <a href="https://discord.com/users/894916012368068640" target="_blank" class="contact-method">
@@ -530,30 +634,6 @@
                     <span>Telegram: @Re1eased</span>
                 </a>
             </div>
-            
-            <div class="service-card" style="max-width: 600px; margin: 0 auto;">
-                <form id="contact-form" style="display: grid; gap: 20px;">
-                    <div style="display: grid; gap: 15px;">
-                        <input type="text" placeholder="Ваше имя" required style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: white;">
-                        <input type="email" placeholder="Ваш email" required style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: white;">
-                        <input type="tel" placeholder="Ваш телефон" style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: white;">
-                        <select required style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: grey;">
-                            <option value="" disabled selected>Выберите услугу</option>
-                            <option value="landing">Лендинг</option>
-                            <option value="corporate">Корпоративный сайт</option>
-                            <option value="shop">Интернет-магазин</option>
-                            <option value="update">Доработка сайта</option>
-                            <option value="seo">SEO-продвижение</option>
-                            <option value="support">Техподдержка</option>
-                            <option value="other">Другое</option>
-                        </select>
-                        <textarea placeholder="Опишите ваш проект" rows="5" required style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: white;"></textarea>
-                    </div>
-                    <button type="submit" class="order-btn" style="background: var(--accent); color: white; border: none; cursor: pointer;">
-                        Отправить заявку
-                    </button>
-                </form>
-            </div>
         </div>
     </section>
 
@@ -563,17 +643,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Обработка формы
-            const contactForm = document.getElementById('contact-form');
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Здесь можно добавить отправку формы на сервер
-                alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время для обсуждения деталей.');
-                contactForm.reset();
-            });
-            
             // Плавная прокрутка
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
